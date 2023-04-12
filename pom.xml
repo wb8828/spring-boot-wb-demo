@@ -14,6 +14,7 @@
         <module>wb-demo-redisson</module>
         <module>wb-demo-file</module>
         <module>wb-demo-swagger</module>
+        <module>wb-demo-redis</module>
     </modules>
 
     <properties>
