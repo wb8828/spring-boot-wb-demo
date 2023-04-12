@@ -1,0 +1,3 @@
+# Project exclude paths
+/wb-demo-file/target/
+/wb-demo-redisson/target/

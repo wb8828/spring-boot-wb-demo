@@ -1,0 +1,25 @@
+
+#spring全局配置
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 16379
+    password: Nariit@123
+    database: 7
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08:00
+  application:
+    name: rmcp-wb-yy
+#  mvc:
+#    pathmatch:
+#      matching-strategy: ant_path_matcher
+
+server:
+  port: 8085
+  servlet:
+    context-path: /wb-demo-redisson
+  tomcat:
+    uri-encoding: UTF-8
+    max-http-form-post-size: 100000000
