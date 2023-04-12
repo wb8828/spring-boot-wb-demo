@@ -3,6 +3,7 @@ package com.spring.demo.itext;
 import com.itextpdf.text.*;
 import com.itextpdf.text.html.WebColors;
 import com.itextpdf.text.pdf.*;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -68,9 +69,11 @@ public class PdfGenerator {
         // 创建表头单元格
         PdfPCell headerCell1 = new PdfPCell(new Phrase("安全工器具台账信息字段名称", fontChinese));
         headerCell1.setColspan(1);
+        headerCell1.setMinimumHeight(20f); // 设置单元格最小高度
         headerCell1 = setCellLeft(headerCell1);
         PdfPCell headerCell2 = new PdfPCell(new Phrase("台账信息不规范字段信息评价标准", fontChinese));
         headerCell2.setColspan(2);
+        headerCell2.setMinimumHeight(20f);// 设置单元格最小高度
         headerCell2 = setCellLeft(headerCell2);
         // 设置表头单元格样式
         BaseColor baseHeaderColor = baseColor(156, 194, 229); // 设置自定义颜色
@@ -86,7 +89,7 @@ public class PdfGenerator {
             Phrase elements = new Phrase();
             if (row[0].equals("A2")) {
                 Font font = new Font(bfChinese, 12, Font.NORMAL);
-                font.setStyle(Font.BOLD);
+                font.setStyle(Font.BOLD);// 字体加粗
                 elements = new Phrase(row[0], fontChinese);
                 elements.add(new Chunk("12345", font)); // 模拟加粗某个字体
             } else {
@@ -143,5 +146,11 @@ public class PdfGenerator {
     private BaseColor baseColor(String HEX) {
         BaseColor myColor = WebColors.getRGBColor("#9cc2e5"); // 设置自定义颜色
         return myColor;
+    }
+
+
+    public static void main(String[] args) {
+        String str = "123444个体防护装备7777777";
+
     }
 }

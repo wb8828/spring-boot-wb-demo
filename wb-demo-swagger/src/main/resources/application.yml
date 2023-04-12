@@ -1,0 +1,24 @@
+#spring全局配置
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08:00
+  application:
+    name: wb-demo-swagger
+
+server:
+  port: 8085
+  servlet:
+    context-path: /wb-demo-swagger
+  tomcat:
+    uri-encoding: UTF-8
+    max-http-form-post-size: 100000000
+
+
+wb:
+  swagger:
+    title: 接口文档 doc
+    description: 学习 API
+    #本地开发测试环境：true， 生产环境：false 默认false
+    enabled: true
+    basePackages: com.spring.demo

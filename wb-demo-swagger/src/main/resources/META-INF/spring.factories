@@ -1,0 +1,5 @@
+# ??Module??????
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+# com.spring.demo.config.SwaggerAutoConfiguration,\
+# com.spring.demo.support.SwaggerProperties,\
+# com.spring.demo.SwaggerFilter
