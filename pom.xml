@@ -15,6 +15,7 @@
         <module>wb-demo-file-itextpdf</module>
         <module>wb-demo-swagger</module>
         <module>wb-demo-redis</module>
+        <module>wb-demo-file</module>
     </modules>
 
     <properties>

@@ -7,9 +7,9 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @ConfigurationPropertiesScan
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class}, scanBasePackages = {"com.spring.demo"})
-public class DemoFileApplication {
+public class DemoFileITextPdfApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DemoFileApplication.class);
+        SpringApplication.run(DemoFileITextPdfApplication.class);
     }
 }
 
