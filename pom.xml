@@ -12,7 +12,7 @@
         <module>wb-demo-mail</module>
         <module>wb-demo-task-quartz</module>
         <module>wb-demo-redisson</module>
-        <module>wb-demo-file</module>
+        <module>wb-demo-file-itextpdf</module>
         <module>wb-demo-swagger</module>
         <module>wb-demo-redis</module>
     </modules>
