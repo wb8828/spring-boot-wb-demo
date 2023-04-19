@@ -16,6 +16,7 @@
         <module>wb-demo-swagger</module>
         <module>wb-demo-redis</module>
         <module>wb-demo-file</module>
+        <module>wb-demo-jdk17</module>
     </modules>
 
     <properties>
