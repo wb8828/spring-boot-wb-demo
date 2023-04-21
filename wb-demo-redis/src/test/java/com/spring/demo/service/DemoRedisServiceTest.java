@@ -31,4 +31,9 @@ public class DemoRedisServiceTest extends SpringBootTests {
         demoRedisService.delete(4L);
     }
 
+    @Test
+    public void  get(){
+        System.out.println(demoRedisService.get(1L));
+    }
+
 }

@@ -68,8 +68,15 @@ public class DemoRedisService {
 
     /**
      * 获取用户
+     * unless ：结果满足条件就不缓存
+     * condition： 满足条件缓存
+     * 支持spEL表达式
+     *
+     * @param id 用户ID
+     * @return 测试用户
      */
-    @Cacheable(value = "user", key = "#id", cacheManager = "normalCacheManager")
+//    @Cacheable(condition = "#id != null ", unless = "#result == null", value = "user", key = "#id", cacheManager = "normalCacheManager")
+    @Cacheable(condition = "#id != null ", unless = "#result?.id == 1", value = "user", key = "#id", cacheManager = "normalCacheManager")
     public TestUser get(Long id) {
         // 我们假设从数据库读取
         return DATABASES.get(id);
