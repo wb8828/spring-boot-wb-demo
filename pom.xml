@@ -19,6 +19,7 @@
         <module>wb-demo-jdk17</module>
         <module>wb-demo-stu-spring</module>
         <module>wb-demo-dncs-nacos</module>
+        <module>wb-demo-code-autogen</module>
     </modules>
 
     <properties>
