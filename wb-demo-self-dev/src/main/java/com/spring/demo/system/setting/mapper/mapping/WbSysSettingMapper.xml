@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.demo.system.setting.mapper.WbSysSettingMapper">
+
+    <resultMap type="com.spring.demo.system.setting.domain.WbSysSetting" id="WbSysSettingResult">
+        <result property="id"    column="ID"    />
+        <result property="dynamicTitle"    column="DYNAMIC_TITLE"    />
+        <result property="userId"    column="USER_ID"    />
+    </resultMap>
+
+    <sql id="selectWbSysSettingVo">
+        select ID, DYNAMIC_TITLE,USER_ID from wb_sys_setting
+    </sql>
+
+    <select id="selectWbSysSettingList" parameterType="com.spring.demo.system.setting.domain.WbSysSetting" resultMap="WbSysSettingResult">
+        <include refid="selectWbSysSettingVo"/>
+        <where>
+            <if test="dynamicTitle != null "> and DYNAMIC_TITLE = #{dynamicTitle}</if>
+            <if test="userId != null "> and USER_ID = #{userId}</if>
+        </where>
+    </select>
+
+    <select id="selectWbSysSettingById" parameterType="Long" resultMap="WbSysSettingResult">
+        <include refid="selectWbSysSettingVo"/>
+        where ID = #{id}
+    </select>
+
+    <insert id="insertWbSysSetting" parameterType="com.spring.demo.system.setting.domain.WbSysSetting">
+        insert into wb_sys_setting
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">ID,</if>
+            <if test="dynamicTitle != null">DYNAMIC_TITLE,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="dynamicTitle != null">#{dynamicTitle},</if>
+         </trim>
+    </insert>
+
+    <update id="updateWbSysSetting" parameterType="com.spring.demo.system.setting.domain.WbSysSetting">
+        update wb_sys_setting
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="dynamicTitle != null">DYNAMIC_TITLE = #{dynamicTitle},</if>
+        </trim>
+        where ID = #{id}
+    </update>
+
+    <delete id="deleteWbSysSettingById" parameterType="Long">
+        delete from wb_sys_setting where ID = #{id}
+    </delete>
+
+    <delete id="deleteWbSysSettingByIds" parameterType="String">
+        delete from wb_sys_setting where ID in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

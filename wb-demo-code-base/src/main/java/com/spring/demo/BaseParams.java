@@ -1,4 +1,4 @@
-package com.spring.demo.domain;
+package com.spring.demo;
 
 import lombok.Data;
 

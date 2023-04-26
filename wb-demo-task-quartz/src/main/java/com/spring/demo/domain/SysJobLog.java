@@ -1,6 +1,7 @@
 package com.spring.demo.domain;
 
 
+import com.spring.demo.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

@@ -1,0 +1,5 @@
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+# com.spring.demo.generator.config.GenConfig,\
+# com.spring.demo.generator.service.impl.GenTableColumnServiceImpl,\
+# com.spring.demo.generator.service.impl.GenTableServiceImpl,\
+# com.spring.demo.generator.controller.GenController

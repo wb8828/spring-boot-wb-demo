@@ -20,6 +20,10 @@
         <module>wb-demo-stu-spring</module>
         <module>wb-demo-dncs-nacos</module>
         <module>wb-demo-code-autogen</module>
+        <module>wb-demo-self-dev</module>
+        <module>wb-demo-code-base</module>
+        <module>wb-demo-page-pagehelper</module>
+        <module>wb-demo-client-feign</module>
     </modules>
 
     <properties>
@@ -155,6 +159,7 @@
     <build>
         <pluginManagement>
             <plugins>
+
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.0.0</version>
@@ -166,6 +171,11 @@
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.7.0</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
@@ -182,18 +192,6 @@
                 <plugin>
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>2.8.2</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring.boot.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>repackage</goal>
-                            </goals>
-                        </execution>
-                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
