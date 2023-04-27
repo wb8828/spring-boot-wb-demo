@@ -24,6 +24,8 @@
         <module>wb-demo-code-base</module>
         <module>wb-demo-page-pagehelper</module>
         <module>wb-demo-client-feign</module>
+        <module>wb-demo-file-poi</module>
+        <module>wb-demo-lombok</module>
     </modules>
 
     <properties>
