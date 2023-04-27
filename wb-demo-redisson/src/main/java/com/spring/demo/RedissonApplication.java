@@ -9,9 +9,9 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @ConfigurationPropertiesScan
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class },scanBasePackages = {"com.spring.demo"})
-public class Main {
+public class RedissonApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Main.class);
+        SpringApplication.run(RedissonApplication.class);
     }
 
 }

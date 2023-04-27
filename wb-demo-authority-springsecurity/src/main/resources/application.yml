@@ -1,0 +1,15 @@
+#spring全局配置
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08:00
+  application:
+    name: wb-demo
+
+server:
+  port: 8085
+  servlet:
+    context-path: /wb-demo
+  tomcat:
+    uri-encoding: UTF-8
+    max-http-form-post-size: 100000000

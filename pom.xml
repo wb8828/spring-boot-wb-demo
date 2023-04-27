@@ -26,6 +26,7 @@
         <module>wb-demo-client-feign</module>
         <module>wb-demo-file-poi</module>
         <module>wb-demo-lombok</module>
+        <module>wb-demo-authority-springsecurity</module>
     </modules>
 
     <properties>
