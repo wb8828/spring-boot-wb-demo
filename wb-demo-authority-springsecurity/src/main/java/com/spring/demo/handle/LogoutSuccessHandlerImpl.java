@@ -21,8 +21,7 @@ public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler {
      * 退出处理
      */
     @Override
-    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
-            throws IOException, ServletException {
+    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 
         // 删除用户缓存记录
 

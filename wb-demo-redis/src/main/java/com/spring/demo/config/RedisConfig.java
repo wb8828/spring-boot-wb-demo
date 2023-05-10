@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.spring.demo.constant.CacheConstants;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
@@ -29,10 +30,6 @@ import java.util.Arrays;
 @Configuration
 public class RedisConfig {
 
-    /**
-     * 通用缓存前缀
-     */
-    private static final String CACHE_NAME_PREFIX = "wb-demo";
     /**
      * 过期时间(单位秒)
      */
@@ -63,7 +60,7 @@ public class RedisConfig {
         RedisCacheConfiguration cacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
                 .entryTtl(Duration.ofSeconds(EXPIRATION_TIME + randomExpirationTime()))
                 .disableCachingNullValues()
-                .computePrefixWith(cacheName -> CACHE_NAME_PREFIX.concat(":").concat(cacheName).concat(":"))
+                .computePrefixWith(cacheName -> CacheConstants.CACHE_NAME_PREFIX.concat(":").concat(cacheName).concat(":"))
                 .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(jackson2JsonRedisSerializer()));
 

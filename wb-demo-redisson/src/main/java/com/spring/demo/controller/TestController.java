@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author: wb
@@ -19,8 +18,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/test")
 public class TestController {
-
-    private static Map<String, String> map = new HashMap<>();
 
     @Autowired
     private RedisLockUtil redisLockUtil;
