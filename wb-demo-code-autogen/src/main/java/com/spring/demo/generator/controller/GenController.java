@@ -10,6 +10,8 @@ import com.spring.demo.generator.domain.GenTableColumn;
 import com.spring.demo.generator.mapper.GenTableMapper;
 import com.spring.demo.generator.service.IGenTableColumnService;
 import com.spring.demo.generator.service.IGenTableService;
+import com.spring.demo.log.annotation.Log;
+import com.spring.demo.log.enums.BusinessType;
 import com.spring.demo.pojo.BasePageModel;
 import com.spring.demo.pojo.TableDataInfo;
 import org.apache.commons.io.IOUtils;
@@ -46,6 +48,7 @@ public class GenController extends BasePageModel {
     /**
      * 查询代码生成列表
      */
+    @Log(title = "操作日志", businessType = BusinessType.QUERY)
     @GetMapping("/list")
     public TableDataInfo genList(GenTable genTable) {
         startPage();

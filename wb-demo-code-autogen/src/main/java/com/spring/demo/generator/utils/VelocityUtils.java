@@ -151,15 +151,15 @@ public class VelocityUtils {
         templates.add("vm/java/controller.java.vm");
         templates.add("vm/xml/mapper.xml.vm");
 //        templates.add("vm/sql/sql.vm");
-        templates.add("vm/js/api.js.vm");
-        if (GenConstants.TPL_CRUD.equals(tplCategory)) {
-            templates.add("vm/vue/index.vue.vm");
-        } else if (GenConstants.TPL_TREE.equals(tplCategory)) {
-            templates.add("vm/vue/index-tree.vue.vm");
-        } else if (GenConstants.TPL_SUB.equals(tplCategory)) {
-            templates.add("vm/vue/index.vue.vm");
-            templates.add("vm/java/sub-domain.java.vm");
-        }
+//        templates.add("vm/js/api.js.vm");
+//        if (GenConstants.TPL_CRUD.equals(tplCategory)) {
+//            templates.add("vm/vue/index.vue.vm");
+//        } else if (GenConstants.TPL_TREE.equals(tplCategory)) {
+//            templates.add("vm/vue/index-tree.vue.vm");
+//        } else if (GenConstants.TPL_SUB.equals(tplCategory)) {
+//            templates.add("vm/vue/index.vue.vm");
+//            templates.add("vm/java/sub-domain.java.vm");
+//        }
         return templates;
     }
 
@@ -179,7 +179,9 @@ public class VelocityUtils {
         String businessName = genTable.getBusinessName();
 
         String javaPath = PROJECT_PATH + "/" + org.apache.commons.lang3.StringUtils.replace(packageName, ".", "/");
-        String mybatisPath = MYBATIS_PATH + "/" + moduleName;
+
+//        String mybatisPath = MYBATIS_PATH + "/" + moduleName;
+        String mybatisPath = PROJECT_PATH + "/" + org.apache.commons.lang3.StringUtils.replace(packageName, ".", "/") + "/mapper/mapping";
         String vuePath = "vue";
 
         if (template.contains("domain.java.vm")) {

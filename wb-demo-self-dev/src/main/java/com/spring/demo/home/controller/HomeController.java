@@ -4,6 +4,8 @@ import cn.hutool.core.util.RandomUtil;
 import com.spring.demo.AjaxResult;
 import com.spring.demo.BaseController;
 import com.spring.demo.home.dto.CountDataDTO;
+import com.spring.demo.log.annotation.Log;
+import com.spring.demo.log.enums.BusinessType;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,20 +17,9 @@ import java.util.*;
 public class HomeController extends BaseController {
 
 
-    @ConditionalOnProperty(name = "type", prefix = "int", havingValue = "123")
+
     @GetMapping("/loginUserInfo")
     public AjaxResult loginUserInfo() {
-        Map<String, Object> result = new HashMap<>();
-        result.put("name", "Admin");
-        result.put("access", "管理员");
-        result.put("time", LocalDate.now().toString());
-        result.put("addr", "山东省济南市");
-        return AjaxResult.success(result);
-    }
-
-    @ConditionalOnProperty(name = "type", prefix = "int", havingValue = "456")
-    @GetMapping("/loginUserInfo2")
-    public AjaxResult loginUserInfo1() {
         Map<String, Object> result = new HashMap<>();
         result.put("name", "Admin");
         result.put("access", "管理员");
