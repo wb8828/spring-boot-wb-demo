@@ -29,7 +29,7 @@ import ${packageName}.service.I${ClassName}Service;
  * @date ${datetime}
  */
 @Service
-public class ${ClassName}ServiceImpl#if($openMybatisPlus)extends ServiceImpl<${ClassName}Mapper,${ClassName}>#end implements I${ClassName}Service
+public class ${ClassName}ServiceImpl#if($openMybatisPlus) extends ServiceImpl<${ClassName}Mapper,${ClassName}>#end implements I${ClassName}Service
 {
     @Autowired
     private ${ClassName}Mapper ${className}Mapper;

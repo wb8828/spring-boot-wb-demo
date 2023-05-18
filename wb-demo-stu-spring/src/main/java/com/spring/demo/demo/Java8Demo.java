@@ -64,6 +64,18 @@ public class Java8Demo {
     }
 
     // </editor-fold>
+
+    // <editor-fold desc="集合转List">
+
+    @Test
+    public void test4(){
+        Java8Demo.init1();
+        List<String> collect = list.stream().map(TestPOJO::getKey).collect(Collectors.toList());
+        log.info(collect.toString());
+    }
+
+    // </editor-fold>
+
     @Data
     @AllArgsConstructor
     @NoArgsConstructor

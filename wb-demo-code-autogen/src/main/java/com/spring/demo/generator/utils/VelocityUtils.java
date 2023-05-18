@@ -22,7 +22,8 @@ public class VelocityUtils {
     /**
      * 项目空间路径
      */
-    private static final String PROJECT_PATH = "main/java";
+    private static final String PROJECT_PATH = "";
+//    private static final String PROJECT_PATH = "main/java";
 
     /**
      * mybatis空间路径
@@ -56,7 +57,7 @@ public class VelocityUtils {
         velocityContext.put("BusinessName", org.apache.commons.lang3.StringUtils.capitalize(genTable.getBusinessName()));
         velocityContext.put("businessName", genTable.getBusinessName());
         velocityContext.put("basePackage", getPackagePrefix(packageName));
-        velocityContext.put("packageName", packageName);
+        velocityContext.put("packageName", packageName + "." +  genTable.getModuleName());
         velocityContext.put("author", genTable.getFunctionAuthor());
         velocityContext.put("datetime", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
         velocityContext.put("pkColumn", genTable.getPkColumn());
@@ -178,10 +179,10 @@ public class VelocityUtils {
         // 业务名称
         String businessName = genTable.getBusinessName();
 
-        String javaPath = PROJECT_PATH + "/" + org.apache.commons.lang3.StringUtils.replace(packageName, ".", "/");
+        String javaPath = PROJECT_PATH + "/" + org.apache.commons.lang3.StringUtils.replace(packageName, ".", "/") + "/" + moduleName + "/";
 
 //        String mybatisPath = MYBATIS_PATH + "/" + moduleName;
-        String mybatisPath = PROJECT_PATH + "/" + org.apache.commons.lang3.StringUtils.replace(packageName, ".", "/") + "/mapper/mapping";
+        String mybatisPath = PROJECT_PATH + "/" + org.apache.commons.lang3.StringUtils.replace(packageName, ".", "/") +"/" + moduleName + "/mapper/mapping";
         String vuePath = "vue";
 
         if (template.contains("domain.java.vm")) {
