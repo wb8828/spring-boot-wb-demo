@@ -30,6 +30,7 @@
         <module>wb-demo-crypto</module>
         <module>wb-demo-aop-log</module>
         <module>wb-demo-thread-async</module>
+        <module>wb-demo-jasypt</module>
     </modules>
 
     <properties>

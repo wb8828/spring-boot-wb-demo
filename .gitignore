@@ -68,3 +68,5 @@ yarn.lock
 *.njsproj
 *.sln
 *.sw?
+wb-demo-self-dev/src/main/java/com/spring/demo/work
+wb-demo-self-dev/src/main/resources/application-dev.yml

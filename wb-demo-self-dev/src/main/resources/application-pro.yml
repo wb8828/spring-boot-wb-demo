@@ -1,0 +1,27 @@
+#spring全局配置
+spring:
+  datasource:
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+      datasource:
+        master:
+          url: jdbc:mysql://127.0.01:3306/wb_yy?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        gsgqj:
+          url: jdbc:mysql://192.168.127.14:13306/gsgqj?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+          username: root
+          password: Nariit@123
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        zbcgqj:
+          url: jdbc:mysql://192.168.127.14:13306/zbcgqj?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+          username: root
+          password: Nariit@123
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        jb:
+          url: jdbc:mysql://192.168.12.224:3306/jbxcnew?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
