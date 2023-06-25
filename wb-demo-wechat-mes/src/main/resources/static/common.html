@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<th:block th:fragment="common_header">-->
+<!--    &lt;!&ndash; Common styles &ndash;&gt;-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="renderer" content="webkit|ie-comp|ie-stand">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
+<!--    <meta http-equiv="Cache-Control" content="no-siteapp" />-->
+<!--    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon" />-->
+<!--    <link rel="stylesheet" th:href="@{/resource/plugin/weAdmin/static/css/font.css}">-->
+<!--    <link rel="stylesheet" th:href="@{/resource/plugin/weAdmin/static/css/weadmin.css}">-->
+<!--</th:block>-->
+
+<th:block th:fragment="common_js">
+    <script type="text/javascript" th:src="@{js/jquery-3.5.1.min.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{js/vue.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{js/element-2.15.13.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{js/layui.js}" charset="utf-8"></script>
+</th:block>
+
+<th:block th:fragment="common_css">
+    <link rel="stylesheet" th:href="@{css/layui.css}">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" th:href="@{css/element-2.15.13.css}">
+</th:block>

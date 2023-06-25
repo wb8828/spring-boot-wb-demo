@@ -7,6 +7,9 @@ spring:
     time-zone: GMT+08:00
   application:
     name: wb-demo
+
+  thymeleaf:
+    prefix: classpath:/static/
 server:
   port: 8085
   servlet:
@@ -19,12 +22,12 @@ server:
 mybatis-plus:
   global-config:
     enable-sql-runner: true
-  mapper-locations: classpath*:mapper/**/*Mapper.xml,classpath*:com/spring/demo/**/*Mapper.xml
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     call-setters-on-nulls: true
     map-underscore-to-camel-case: true #是否开启
 
-jasypt:
-  encryptor:
-    bean: myStringEncryptor
+yy:
+  personPath: D:\home\person.txt
+  sendMes: D:\home\mes.txt

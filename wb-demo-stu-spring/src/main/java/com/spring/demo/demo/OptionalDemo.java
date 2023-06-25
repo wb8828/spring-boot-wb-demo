@@ -20,4 +20,17 @@ public class OptionalDemo {
 
         return present;
     }
+
+
+    public static void main(String... strings) {
+        int[] arr= {1,2,23};
+        int sum = 0;
+        for (int index :arr){
+            sum += index;
+        }
+        System.out.println(sum);
+
+        System.out.println(7 % 4);
+    }
+
 }

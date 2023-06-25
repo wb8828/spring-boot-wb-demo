@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>群发微信信息</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/layui.css">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="css/element-2.15.13.css">
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/layui.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router-3.6.5.js"></script>
+    <script src="js/element-2.15.13.js"></script>
+
+</head>
+<body>
+<blockquote class="layui-elem-quote">
+    发送期间不要动电脑
+</blockquote>
+<div class="layui-form">
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">发送的内容</label>
+        <div class="layui-input-block">
+            <textarea readonly id="mes" name="mes" placeholder="内容" class="layui-textarea"
+                      style="height:  200px"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">发送的人员</label>
+        <div class="layui-input-block">
+            <textarea readonly id="person" name="person" placeholder="人员" class="layui-textarea"
+                      style="height:  500px"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button id="sendButton" type="submit" class="layui-btn" lay-submit lay-filter="sendFormBtn"
+                    lay-on="test-confirm" onclick="sendMes()">
+                立即发送
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    var baseUrl = "http://127.0.0.1:8085/wb-demo"
+    // Usage
+    layui.use(['form', 'laydate', 'util'], function () {
+        var form = layui.form;
+        var layer = layui.layer;
+        var laydate = layui.laydate;
+        var util = layui.util;
+        var layer = layui.layer;
+        util.on('lay-on', {
+            "test-confirm": function () {
+                layer.confirm('是否发送？', {icon: 3}, function () {
+                    sendMes(layer)
+                    layer.close(0);
+                    // layer.msg('点击确定的回调', {icon: 1});
+                }, function () {
+                    // layer.msg('点击取消的回调');
+                });
+            },
+        });
+
+        // Welcome
+        layer.msg('Hello 妍妍', {icon: 6});
+    });
+
+    function sendMes(layer) {
+
+        if ($("#mes").val() == "" || $("#mes").val() == null || $("#mes").val() == undefined) {
+            layer.msg('发送的消息为空');
+            return;
+        }
+        if ($("#person").val() == "" || $("#person").val() == null || $("#person").val() == undefined) {
+            layer.msg('发送的消息为空');
+            return;
+        }
+
+        $.ajax({
+            url: baseUrl + "/sendMes",
+            data: {},
+            type: "post",
+            dataType: "json",
+            headers: {'Content-Type': 'application/json;charset=utf-8'}, //接口json格式
+            success: function (data) {
+                layer.msg('正在开始发送');
+                console.log(data);
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        });
+    }
+
+    function getMes() {
+        $.ajax({
+            url: baseUrl + "/getMes",
+            data: {},
+            type: "get",
+            dataType: "json",
+            headers: {'Content-Type': 'application/json;charset=utf-8'}, //接口json格式
+            success: function (data) {
+                $("#mes").val(data.mes)
+
+                var personList = data.personList;
+                var person = "";
+                for (let index in personList) {
+                    person += personList[index] + "\n";
+                }
+
+                $("#person").val(person)
+
+                $("#sendButton").text("立即发送(" + personList.length + "人)")
+                console.log(data);
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        getMes()
+    });
+</script>
+</body>
+</html>
