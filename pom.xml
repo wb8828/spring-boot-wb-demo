@@ -11,10 +11,7 @@
     <modules>
         <module>wb-demo-mail</module>
         <module>wb-demo-task-quartz</module>
-        <module>wb-demo-redisson</module>
-        <module>wb-demo-file-itextpdf</module>
         <module>wb-demo-swagger</module>
-        <module>wb-demo-redis</module>
         <module>wb-demo-file</module>
         <module>wb-demo-jdk17</module>
         <module>wb-demo-stu-spring</module>
@@ -24,14 +21,20 @@
         <module>wb-demo-code-base</module>
         <module>wb-demo-page-pagehelper</module>
         <module>wb-demo-client-feign</module>
-        <module>wb-demo-file-poi</module>
         <module>wb-demo-lombok</module>
-        <module>wb-demo-authority-springsecurity</module>
+        <module>wb-demo-authority</module>
         <module>wb-demo-crypto</module>
         <module>wb-demo-aop-log</module>
         <module>wb-demo-thread-async</module>
         <module>wb-demo-jasypt</module>
         <module>wb-demo-wechat-mes</module>
+        <module>wb-demo-webSocket</module>
+        <module>wb-demo-flyway</module>
+        <module>wb-demo-net-okhttp3</module>
+        <module>wb-demo-orm</module>
+        <module>wb-demo-cache</module>
+        <module>wb-demo-file/wb-demo-file-itextpdf</module>
+        <module>wb-demo-file/wb-demo-file-poi</module>
     </modules>
 
     <properties>

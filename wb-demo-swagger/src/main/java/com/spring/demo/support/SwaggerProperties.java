@@ -12,7 +12,7 @@ import java.util.List;
  * @author chendayuan
  * @date 2018/7/25 14:00
  */
-@ConfigurationProperties("wb.swagger")
+@ConfigurationProperties("swagger")
 public class SwaggerProperties {
 
 	/**

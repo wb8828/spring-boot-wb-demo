@@ -1,5 +1,6 @@
 package com.spring.demo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -15,9 +16,10 @@ import java.io.IOException;
  * @create: 2021-07-15 16:06
  **/
 @Configuration
+@Slf4j
 public class SwaggerFilter implements Filter {
 
-    @Value("${wb.swagger.enabled:false}")
+    @Value("${swagger.enabled:false}")
     private Boolean isEnabled;
 
     @Override
@@ -28,8 +30,9 @@ public class SwaggerFilter implements Filter {
             String reqUrl = req.getRequestURI();
 
             if (reqUrl.indexOf("/doc.html") > 0) {
+                log.info("访问swagger被拦截!");
                 HttpServletResponse res = (HttpServletResponse) response;
-                res.setStatus(HttpStatus.NOT_FOUND.value());
+                res.setStatus(HttpStatus.FORBIDDEN.value());
                 return;
             }
         }

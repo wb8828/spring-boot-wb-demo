@@ -24,7 +24,7 @@ import java.util.List;
 
 @EnableSwagger2
 @Configuration
-@ConditionalOnProperty(name = "wb.swagger.enabled", matchIfMissing = true)
+@ConditionalOnProperty(name = "swagger.enabled", matchIfMissing = true)
 @EnableSwaggerBootstrapUI
 @ConditionalOnClass(Docket.class)
 public class SwaggerAutoConfiguration {
