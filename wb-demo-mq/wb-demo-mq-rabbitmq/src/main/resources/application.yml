@@ -1,0 +1,21 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /wb-demo
+  tomcat:
+    uri-encoding: UTF-8
+    max-http-form-post-size: 100000000
+
+spring:
+  rabbitmq:
+    host: 192.168.48.128
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    # 手动提交消息
+    listener:
+      simple:
+        acknowledge-mode: manual
+      direct:
+        acknowledge-mode: manual

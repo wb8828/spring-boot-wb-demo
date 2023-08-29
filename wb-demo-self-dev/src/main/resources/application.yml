@@ -1,5 +1,41 @@
 #spring全局配置
 spring:
+  kafka:
+    bootstrap-servers: 192.168.48.128:9092
+    producer:
+      # 发生错误后，消息重发的次数。
+      retries: 0
+      # 键的序列化方式
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # 值的序列化方式
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+      properties:
+        # 配置拦截器多个使用,分割
+        interceptor.classes: com.spring.demo.kafka.interceptor.CustomProducerInterceptor
+    consumer:
+      group-id: test
+      # 键的反序列化方式
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # 值的反序列化方式
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        # 配置拦截器多个使用,分割
+        interceptor.classes: com.spring.demo.kafka.interceptor.CustomConsumerInterceptor
+    listener:
+      # 但消费者监听的topic不存在时，保证能够是项目启动
+      missing-topics-fatal: false
+
+  cache:
+    type: redis
+    ehcache:
+      config: classpath:ehcache.xml
+
+  redis:
+    host: 127.0.0.1
+    password: Nariit@123
+    port: 16379
+    database: 7
   profiles:
     active: dev
   jackson:
@@ -28,3 +64,10 @@ mybatis-plus:
 jasypt:
   encryptor:
     bean: myStringEncryptor
+
+
+sys:
+  captcha:
+    enabled: true
+    captchaType: math
+  env: dev

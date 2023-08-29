@@ -13,8 +13,7 @@
         <module>wb-demo-task-quartz</module>
         <module>wb-demo-swagger</module>
         <module>wb-demo-file</module>
-        <module>wb-demo-jdk17</module>
-        <module>wb-demo-stu-spring</module>
+        <module>wb-demo-stu</module>
         <module>wb-demo-dncs-nacos</module>
         <module>wb-demo-code-autogen</module>
         <module>wb-demo-self-dev</module>
@@ -35,6 +34,12 @@
         <module>wb-demo-cache</module>
         <module>wb-demo-file/wb-demo-file-itextpdf</module>
         <module>wb-demo-file/wb-demo-file-poi</module>
+        <module>wb-demo-truelicense</module>
+        <module>wb-demo-stu/wb-demo-stu-java8</module>
+        <module>wb-demo-stu/wb-demo-stu-spring</module>
+        <module>wb-demo-mq</module>
+        <module>wb-demo-mq/wb-demo-mq-kafka</module>
+        <module>wb-demo-mq/wb-demo-mq-rabbitmq</module>
     </modules>
 
     <properties>
