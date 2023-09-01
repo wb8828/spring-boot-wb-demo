@@ -19,7 +19,6 @@ public final class EhCacheUtils {
         CacheManager cacheManager = CacheManager.getInstance();
         cacheManager.addCacheIfAbsent(CACHE_NAME);
         cache = cacheManager.getCache(CACHE_NAME);
-        System.out.println();
     }
 
     /**
@@ -57,8 +56,8 @@ public final class EhCacheUtils {
     /**
      * 删除缓存数据
      */
-    public static void delete(String key) {
-        cache.remove(key);
+    public static boolean delete(String key) {
+        return cache.remove(key);
     }
 
     public static void deleteAll() {

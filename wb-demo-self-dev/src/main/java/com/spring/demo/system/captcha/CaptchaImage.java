@@ -5,7 +5,7 @@ import cn.hutool.core.codec.Base64;
 import cn.hutool.core.util.IdUtil;
 import com.google.code.kaptcha.Producer;
 import com.spring.demo.config.properties.SysConfig;
-import com.spring.demo.core.cache.util.CacheUtil;
+import com.spring.demo.core.cache.support.CacheServer;
 import com.spring.demo.core.constant.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class CaptchaImage {
     @Autowired
     private SysConfig sysConfig;
     @Autowired
-    private CacheUtil cacheUtil;
+    private CacheServer cacheServer;
 
     public Map<String, Object> creatCaptchaImage() {
         if (!sysConfig.isCaptchaEnabled()) {
@@ -54,7 +54,7 @@ public class CaptchaImage {
             capStr = code = captchaProducer.createText();
             image = captchaProducer.createImage(capStr);
         }
-        cacheUtil.cacheManager(sysConfig.getCacheType()).setObject(verifyKey, code, Constants.CAPTCHA_EXPIRATION, TimeUnit.MINUTES);
+        cacheServer.setObject(verifyKey, code, Constants.CAPTCHA_EXPIRATION, TimeUnit.MINUTES);
         Map<String, Object> result = new HashMap<>();
 
         // 转换流信息写出

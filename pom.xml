@@ -10,36 +10,30 @@
     <packaging>pom</packaging>
     <modules>
         <module>wb-demo-mail</module>
-        <module>wb-demo-task-quartz</module>
         <module>wb-demo-swagger</module>
         <module>wb-demo-file</module>
         <module>wb-demo-stu</module>
-        <module>wb-demo-dncs-nacos</module>
         <module>wb-demo-code-autogen</module>
         <module>wb-demo-self-dev</module>
         <module>wb-demo-code-base</module>
-        <module>wb-demo-page-pagehelper</module>
-        <module>wb-demo-client-feign</module>
         <module>wb-demo-lombok</module>
         <module>wb-demo-authority</module>
         <module>wb-demo-crypto</module>
-        <module>wb-demo-aop-log</module>
         <module>wb-demo-thread-async</module>
         <module>wb-demo-jasypt</module>
         <module>wb-demo-wechat-mes</module>
         <module>wb-demo-webSocket</module>
         <module>wb-demo-flyway</module>
-        <module>wb-demo-net-okhttp3</module>
         <module>wb-demo-orm</module>
         <module>wb-demo-cache</module>
-        <module>wb-demo-file/wb-demo-file-itextpdf</module>
-        <module>wb-demo-file/wb-demo-file-poi</module>
         <module>wb-demo-truelicense</module>
-        <module>wb-demo-stu/wb-demo-stu-java8</module>
-        <module>wb-demo-stu/wb-demo-stu-spring</module>
         <module>wb-demo-mq</module>
-        <module>wb-demo-mq/wb-demo-mq-kafka</module>
-        <module>wb-demo-mq/wb-demo-mq-rabbitmq</module>
+        <module>wb-demo-client</module>
+        <module>wb-demo-task</module>
+        <module>wb-demo-page</module>
+        <module>wb-demo-aop</module>
+        <module>wb-demo-soa</module>
+        <module>wb-demo-il8n</module>
     </modules>
 
     <properties>

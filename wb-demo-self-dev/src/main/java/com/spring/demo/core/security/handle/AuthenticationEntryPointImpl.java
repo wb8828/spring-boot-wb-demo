@@ -19,9 +19,7 @@ import java.util.Map;
 /**
  * 认证失败处理类 返回未授权
  * 
- * @author ruoyi
  */
-@ConditionalOnProperty(name = "type",prefix = "system",havingValue = "jf")
 @Component
 public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint, Serializable
 {
@@ -32,11 +30,10 @@ public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint, S
             throws IOException
     {
 
-        int code = HttpStatus.UNAUTHORIZED;
         String msg = StrUtil.format("请求访问：{}，认证失败，无法访问系统资源", request.getRequestURI());
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("msg",msg);
-        map.put("code",code);
+        map.put("code",HttpStatus.UNAUTHORIZED);
         ServletUtils.renderString(response, JSON.toJSONString(map));
     }
 }

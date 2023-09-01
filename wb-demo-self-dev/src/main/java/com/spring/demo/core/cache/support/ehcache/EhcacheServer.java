@@ -2,13 +2,16 @@ package com.spring.demo.core.cache.support.ehcache;
 
 import com.spring.demo.core.cache.support.CacheServer;
 import com.spring.demo.core.cache.support.ehcache.condition.EhcacheCondition;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
 
-@Component(value = "ehcacheServeImpl")
-@Conditional({EhcacheCondition.class})
+@Service(value = "ehcacheServeImpl")
+//@Conditional({EhcacheCondition.class})
+@RequiredArgsConstructor
 public class EhcacheServer implements CacheServer {
 
     @Override
@@ -32,12 +35,27 @@ public class EhcacheServer implements CacheServer {
     }
 
     @Override
-    public void deleteObject(String key) {
-        EhCacheUtils.delete(key);
+    public boolean deleteObject(String key) {
+        return EhCacheUtils.delete(key);
     }
 
     @Override
     public boolean hasKey(String key) {
         return EhCacheUtils.hasKey(key);
+    }
+
+    @Override
+    public boolean expire(String key, long timeout) {
+        return false;
+    }
+
+    @Override
+    public boolean expire(String key, long timeout, TimeUnit unit) {
+        return false;
+    }
+
+    @Override
+    public long getExpire(String key) {
+        return 0;
     }
 }

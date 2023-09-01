@@ -22,7 +22,7 @@ public class MyResponseAdvice implements ResponseBodyAdvice {
     // 返回 false 表示对结果不进行任何处理，直接返回
     @Override
     public boolean supports(MethodParameter returnType, Class converterType) {
-        return true;
+        return false;
     }
 
     @Override

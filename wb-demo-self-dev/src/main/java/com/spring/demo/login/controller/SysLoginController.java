@@ -6,7 +6,7 @@ import cn.hutool.crypto.asymmetric.RSA;
 import com.spring.demo.AjaxResult;
 import com.spring.demo.BaseController;
 import com.spring.demo.config.properties.SysConfig;
-import com.spring.demo.core.cache.util.CacheUtil;
+import com.spring.demo.core.cache.support.CacheServer;
 import com.spring.demo.core.constant.Constants;
 import com.spring.demo.core.constant.Keys;
 import com.spring.demo.login.dto.LoginBody;
@@ -53,7 +53,8 @@ public class SysLoginController extends BaseController {
 
     private final TokenService tokenService;
 
-    private final CacheUtil cacheUtil;
+
+    private final CacheServer cacheServer;
 
     @PostMapping("/login")
     public AjaxResult login(@RequestBody LoginBody loginBody) {
@@ -62,7 +63,7 @@ public class SysLoginController extends BaseController {
         String username = rsa.decryptStr(loginBody.getUsername(), KeyType.PrivateKey);
         String password = rsa.decryptStr(loginBody.getPassword(), KeyType.PrivateKey);
 
-        String verificationCode = cacheUtil.cacheManager(sysConfig.getCacheType()).getObject(Constants.CAPTCHA_CODE_KEY + loginBody.getUuid());
+        String verificationCode = cacheServer.getObject(Constants.CAPTCHA_CODE_KEY + loginBody.getUuid());
 
         SysUser sysUser = new SysUser();
         sysUser.setUserName("管理员");

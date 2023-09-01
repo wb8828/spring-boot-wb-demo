@@ -14,6 +14,7 @@
     <modules>
         <module>wb-demo-cache-redis</module>
         <module>wb-demo-cache-redisson</module>
+        <module>wb-demo-cache-ehcache</module>
     </modules>
 
     <properties>

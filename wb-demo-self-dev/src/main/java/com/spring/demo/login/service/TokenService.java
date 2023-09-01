@@ -1,8 +1,9 @@
 package com.spring.demo.login.service;
 
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.jwt.JWT;
 import com.spring.demo.config.properties.SysConfig;
-import com.spring.demo.core.cache.util.CacheUtil;
+import com.spring.demo.core.cache.support.CacheServer;
 import com.spring.demo.login.vo.LoginUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -47,11 +48,12 @@ public class TokenService {
     // 令牌有效期（默认30分钟）
     @Value("${token.expireTime:30}")
     private int expireTime;
-    @Autowired
-    private CacheUtil cacheUtil;
 
     @Autowired
     private SysConfig sysConfig;
+
+    @Autowired
+    private CacheServer cacheServer;
     /**
      * 创建令牌
      *
@@ -92,7 +94,7 @@ public class TokenService {
         loginUser.setExpireTime(loginUser.getLoginTime() + expireTime * MILLIS_MINUTE);
         // 根据uuid将loginUser缓存
         String userKey = getTokenKey(loginUser.getToken());
-        cacheUtil.cacheManager(sysConfig.getCacheType()).setObject(userKey, loginUser, expireTime, TimeUnit.MINUTES);
+        cacheServer.setObject(userKey, loginUser, expireTime, TimeUnit.MINUTES);
     }
 
     private String getTokenKey(String uuid) {
@@ -127,7 +129,7 @@ public class TokenService {
                 // 解析对应的权限以及用户信息
                 String uuid = (String) claims.get(LOGIN_USER_KEY);
                 String userKey = getTokenKey(uuid);
-                LoginUser user = cacheUtil.cacheManager(sysConfig.getCacheType()).getObject(userKey);
+                LoginUser user = cacheServer.getObject(userKey);
                 return user;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -187,7 +189,7 @@ public class TokenService {
     public void delLoginUser(String token) {
         if (StringUtils.isNotEmpty(token)) {
             String userKey = getTokenKey(token);
-            cacheUtil.cacheManager(sysConfig.getCacheType()).deleteObject(userKey);
+            cacheServer.deleteObject(userKey);
         }
     }
 

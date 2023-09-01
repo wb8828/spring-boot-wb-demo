@@ -2,7 +2,7 @@ package com.spring.demo.login.service;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.spring.demo.config.properties.SysConfig;
-import com.spring.demo.core.cache.util.CacheUtil;
+import com.spring.demo.core.cache.support.CacheServer;
 import com.spring.demo.core.constant.Constants;
 import com.spring.demo.core.security.context.AuthenticationContextHolder;
 import com.spring.demo.login.vo.LoginUser;
@@ -30,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 
     @Autowired
-    private CacheUtil cacheUtil;
+    private CacheServer cacheServer;
 
     @Autowired
     private SysConfig sysConfig;
@@ -80,7 +80,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         String username = usernamePasswordAuthenticationToken.getName();
         String password = usernamePasswordAuthenticationToken.getCredentials().toString();
 
-        Integer retryCount = cacheUtil.cacheManager(sysConfig.getCacheType()).getObject(getCacheKey(username));
+        Integer retryCount = cacheServer.getObject(getCacheKey(username));
 
         if (retryCount == null) {
             retryCount = 0;
@@ -91,7 +91,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         // 验证密码是否正确
         if (!matches(user, password)) {
             retryCount = retryCount + 1;
-            cacheUtil.cacheManager(sysConfig.getCacheType()).setObject(getCacheKey(username), retryCount, lockTime, TimeUnit.MINUTES);
+            cacheServer.setObject(getCacheKey(username), retryCount, lockTime, TimeUnit.MINUTES);
             throw new RuntimeException("10245");
         }
         // 清除密码锁定信息
@@ -105,8 +105,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     public void clearLoginRecordCache(String loginName) {
-        if (cacheUtil.cacheManager(sysConfig.getCacheType()).hasKey(getCacheKey(loginName))) {
-            cacheUtil.cacheManager(sysConfig.getCacheType()).deleteObject(getCacheKey(loginName));
+        if (cacheServer.hasKey(getCacheKey(loginName))) {
+            cacheServer.deleteObject(getCacheKey(loginName));
         }
     }
 

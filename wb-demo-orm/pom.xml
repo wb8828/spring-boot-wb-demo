@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>wb-demo-orm-jpa</module>
+        <module>wb-demo-orm-mybatis</module>
     </modules>
 
     <properties>
