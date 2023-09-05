@@ -2,6 +2,7 @@ package com.spring.demo.core.security.filter;
 
 
 import cn.hutool.core.util.ObjectUtil;
+import com.spring.demo.config.properties.SysConfig;
 import com.spring.demo.login.service.TokenService;
 import com.spring.demo.login.vo.LoginUser;
 import com.spring.demo.login.vo.SysUser;
@@ -30,10 +31,17 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter
     @Autowired
     private TokenService tokenService;
 
+    @Autowired
+    private SysConfig sysConfig;
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException
     {
+        if (sysConfig.getEnv().equals("dev")){
+            chain.doFilter(request, response);
+            return;
+        }
         LoginUser loginUser = tokenService.getLoginUser(request);
         if (ObjectUtil.isNotNull(loginUser) && ObjectUtil.isNull(SecurityUtils.getAuthentication()))
         {
