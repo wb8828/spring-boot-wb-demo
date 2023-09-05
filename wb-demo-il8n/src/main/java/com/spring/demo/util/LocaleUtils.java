@@ -9,7 +9,9 @@ import java.util.Locale;
 public class LocaleUtils {
 
     public static Locale stringToLocale(String languageTag) {
-
+        if (StringUtils.isBlank(languageTag)){
+            return  Locale.SIMPLIFIED_CHINESE;
+        }
         return Locale.forLanguageTag(StringUtils.replace(languageTag, "_", "-"));
     }
 

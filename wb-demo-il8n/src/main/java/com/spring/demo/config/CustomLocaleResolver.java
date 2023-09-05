@@ -1,5 +1,6 @@
 package com.spring.demo.config;
 
+import com.spring.demo.util.LocaleUtils;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +15,7 @@ public class CustomLocaleResolver extends AcceptHeaderLocaleResolver {
     public Locale resolveLocale(HttpServletRequest request) {
         String language = request.getHeader("Accept-Language");
         if (language != null && !language.isEmpty()) {
-            return Locale.forLanguageTag(language);
+            return LocaleUtils.stringToLocale(language);
         }
         return DEFAULT_LOCALE;
     }
