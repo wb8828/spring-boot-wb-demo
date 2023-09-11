@@ -1,4 +1,4 @@
-package com.spring.demo;
+package com.spring.easyexcel;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,0 +1,35 @@
+#spring全局配置
+spring:
+  mail:
+    #    host: smtp.qq.com #平台地址，qq邮箱
+    host: smtp.163.com #平台地址，163邮箱
+    port: 25 #端口号
+    username: 你的邮箱@163.com #发送邮件的邮箱地址：改成自己的邮箱
+    password: 你的授权码
+    protocol: smtp
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          enable: true
+          ssl:
+            # 设为true时 端口号设为 465 设为false时 端口号设为25
+            enable: false
+          socketFactoryClass: javax.net.ssl.SSLSocketFactory
+        #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
+        debug: true
+    # 邮箱编码格式
+    default-encoding: UTF-8
+
+server:
+  port: 8086
+  servlet:
+    context-path: /wb-demo
+  tomcat:
+    uri-encoding: UTF-8
+    max-http-form-post-size: 100000000
+
+jasypt:
+  encryptor:
+    password: 213dffgdgklsdflsdsff6415@#dfhfhd54548
