@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.demo.mapper.FlywaySchemaHistoryMapper">
+
+    <resultMap type="com.spring.demo.domain.FlywaySchemaHistory" id="FlywaySchemaHistoryResult">
+        <result property="installedRank"    column="installed_rank"    />
+        <result property="version"    column="version"    />
+        <result property="description"    column="description"    />
+        <result property="type"    column="type"    />
+        <result property="script"    column="script"    />
+        <result property="checksum"    column="checksum"    />
+        <result property="installedBy"    column="installed_by"    />
+        <result property="installedOn"    column="installed_on"    />
+        <result property="executionTime"    column="execution_time"    />
+        <result property="success"    column="success"    />
+    </resultMap>
+
+    <sql id="selectFlywaySchemaHistoryVo">
+        select installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success from wb_flyway_schema_history
+    </sql>
+
+    <select id="selectFlywaySchemaHistoryList" parameterType="com.spring.demo.domain.FlywaySchemaHistory" resultMap="FlywaySchemaHistoryResult">
+        <include refid="selectFlywaySchemaHistoryVo"/>
+        <where>
+            <if test="version != null  and version != ''"> and version = #{version}</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="script != null  and script != ''"> and script = #{script}</if>
+            <if test="checksum != null "> and checksum = #{checksum}</if>
+            <if test="installedBy != null  and installedBy != ''"> and installed_by = #{installedBy}</if>
+            <if test="installedOn != null "> and installed_on = #{installedOn}</if>
+            <if test="executionTime != null "> and execution_time = #{executionTime}</if>
+            <if test="success != null "> and success = #{success}</if>
+        </where>
+    </select>
+
+    <select id="selectFlywaySchemaHistoryByInstalledRank" parameterType="Long" resultMap="FlywaySchemaHistoryResult">
+        <include refid="selectFlywaySchemaHistoryVo"/>
+        where installed_rank = #{installedRank}
+    </select>
+
+    <insert id="insertFlywaySchemaHistory" parameterType="com.spring.demo.domain.FlywaySchemaHistory">
+        insert into wb_flyway_schema_history
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="installedRank != null">installed_rank,</if>
+            <if test="version != null">version,</if>
+            <if test="description != null and description != ''">description,</if>
+            <if test="type != null and type != ''">type,</if>
+            <if test="script != null and script != ''">script,</if>
+            <if test="checksum != null">checksum,</if>
+            <if test="installedBy != null and installedBy != ''">installed_by,</if>
+            <if test="installedOn != null">installed_on,</if>
+            <if test="executionTime != null">execution_time,</if>
+            <if test="success != null">success,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="installedRank != null">#{installedRank},</if>
+            <if test="version != null">#{version},</if>
+            <if test="description != null and description != ''">#{description},</if>
+            <if test="type != null and type != ''">#{type},</if>
+            <if test="script != null and script != ''">#{script},</if>
+            <if test="checksum != null">#{checksum},</if>
+            <if test="installedBy != null and installedBy != ''">#{installedBy},</if>
+            <if test="installedOn != null">#{installedOn},</if>
+            <if test="executionTime != null">#{executionTime},</if>
+            <if test="success != null">#{success},</if>
+         </trim>
+    </insert>
+
+    <update id="updateFlywaySchemaHistory" parameterType="com.spring.demo.domain.FlywaySchemaHistory">
+        update wb_flyway_schema_history
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="version != null">version = #{version},</if>
+            <if test="description != null and description != ''">description = #{description},</if>
+            <if test="type != null and type != ''">type = #{type},</if>
+            <if test="script != null and script != ''">script = #{script},</if>
+            <if test="checksum != null">checksum = #{checksum},</if>
+            <if test="installedBy != null and installedBy != ''">installed_by = #{installedBy},</if>
+            <if test="installedOn != null">installed_on = #{installedOn},</if>
+            <if test="executionTime != null">execution_time = #{executionTime},</if>
+            <if test="success != null">success = #{success},</if>
+        </trim>
+        where installed_rank = #{installedRank}
+    </update>
+
+    <delete id="deleteFlywaySchemaHistoryByInstalledRank" parameterType="Long">
+        delete from wb_flyway_schema_history where installed_rank = #{installedRank}
+    </delete>
+
+    <delete id="deleteFlywaySchemaHistoryByInstalledRanks" parameterType="String">
+        delete from wb_flyway_schema_history where installed_rank in
+        <foreach item="installedRank" collection="array" open="(" separator="," close=")">
+            #{installedRank}
+        </foreach>
+    </delete>
+</mapper>

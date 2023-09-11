@@ -41,6 +41,12 @@ jasypt:
   encryptor:
     bean: myStringEncryptor
 
+ratelimit:
+  enabled: true
+  records:
+    enabled: false
+    group: default
+    app-name: 默认应用
 
 sys:
   captcha:

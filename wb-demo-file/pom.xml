@@ -19,6 +19,7 @@
     <modules>
         <module>wb-demo-file-itextpdf</module>
         <module>wb-demo-file-poi</module>
+        <module>wb-demo-file-easyexcel</module>
     </modules>
 
     <dependencyManagement>

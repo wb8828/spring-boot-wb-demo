@@ -3,7 +3,6 @@ package com.spring.demo.itext;
 import com.itextpdf.text.*;
 import com.itextpdf.text.html.WebColors;
 import com.itextpdf.text.pdf.*;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -146,11 +145,5 @@ public class PdfGenerator {
     private BaseColor baseColor(String HEX) {
         BaseColor myColor = WebColors.getRGBColor("#9cc2e5"); // 设置自定义颜色
         return myColor;
-    }
-
-
-    public static void main(String[] args) {
-        String str = "123444个体防护装备7777777";
-
     }
 }

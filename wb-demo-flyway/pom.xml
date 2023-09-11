@@ -10,7 +10,8 @@
     </parent>
 
     <artifactId>wb-demo-flyway</artifactId>
-
+    <version>1.0.0</version>
+    <name>数据库版本控制</name>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
@@ -21,6 +22,7 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
+            <version>7.15.0</version>
         </dependency>
 
         <dependency>
@@ -36,11 +38,33 @@
             <version>2.2.2</version>
         </dependency>
 
-        <!-- SpringBoot集成mybatis-plus框架 -->
+
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.2</version>
+            <groupId>com.spring.demo</groupId>
+            <artifactId>wb-demo-code-base</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.spring.demo</groupId>
+            <artifactId>wb-demo-page-pagehelper</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.2.4</version>
+                <configuration>
+                    <url>jdbc:mysql://127.0.01:3306/wb_yy?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true&amp;serverTimezone=GMT%2B8</url>
+                    <user>root</user>
+                    <password>root</password>
+                    <driver>com.mysql.cj.jdbc.Driver</driver>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -1,7 +1,6 @@
 package com.spring.demo.login.service;
 
 import cn.hutool.core.util.IdUtil;
-import cn.hutool.jwt.JWT;
 import com.spring.demo.config.properties.SysConfig;
 import com.spring.demo.core.cache.support.CacheServer;
 import com.spring.demo.login.vo.LoginUser;

@@ -1,5 +1,7 @@
 package com.spring.demo.pojo;
 
+import com.github.pagehelper.PageInfo;
+import com.spring.demo.HttpStatus;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -48,11 +50,11 @@ public class TableDataInfo implements Serializable {
     /**
      * 是否第一页
      */
-    private boolean isFirstPage;
+    private boolean firstPage;
     /**
      * 是否最后一页
      */
-    private boolean isLastPage;
+    private boolean lastPage;
     /**
      * 是否有前一页
      */
@@ -77,6 +79,31 @@ public class TableDataInfo implements Serializable {
     public TableDataInfo(List<?> list, int total) {
         this.rows = list;
         this.total = total;
+
+
     }
 
+    public TableDataInfo(List<?> list) {
+        PageInfo pageInfo = new PageInfo(list);
+        this.code = HttpStatus.SUCCESS;
+        this.msg = "查询成功";
+        this.rows = list;
+        this.total = pageInfo.getTotal();
+        this.pages = pageInfo.getPages();
+    }
+
+    public TableDataInfo(List<?> list, PageInfo pageInfo) {
+        this.code = HttpStatus.SUCCESS;
+        this.msg = "查询成功";
+        this.rows = list;
+        this.total = pageInfo.getTotal();
+        this.pages = pageInfo.getPages();
+
+        this.pageNum = pageInfo.getPageNum();
+        this.pageSize = pageInfo.getPageSize();
+        this.haveNextPage = pageInfo.isHasNextPage();
+        this.lastPage = pageInfo.isIsLastPage();
+        this.firstPage = pageInfo.isIsFirstPage();
+        this.hasPreviousPage = pageInfo.isHasPreviousPage();
+    }
 }

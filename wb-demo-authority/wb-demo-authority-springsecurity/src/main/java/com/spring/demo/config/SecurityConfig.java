@@ -1,7 +1,9 @@
 package com.spring.demo.config;
 
+import com.spring.demo.filter.JwtAuthenticationTokenFilter;
 import com.spring.demo.handle.AuthenticationEntryPointImpl;
 import com.spring.demo.handle.LogoutSuccessHandlerImpl;
+import com.spring.demo.properties.PermitAllUrlProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +15,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.web.filter.CorsFilter;
 
 /**
  * @author: spring security 配置类
@@ -38,6 +41,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     private LogoutSuccessHandlerImpl logoutSuccessHandler;
+
+    /**
+     * token认证过滤器
+     */
+    @Autowired(required = false)
+    private JwtAuthenticationTokenFilter authenticationTokenFilter;
+
+    /**
+     * 跨域过滤器
+     */
+    @Autowired(required = false)
+    private CorsFilter corsFilter;
+
+    /**
+     * 允许匿名访问的地址
+     */
+    @Autowired(required = false)
+    private PermitAllUrlProperties permitAllUrl;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
