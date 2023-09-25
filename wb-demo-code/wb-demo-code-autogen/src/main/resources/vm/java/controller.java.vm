@@ -100,9 +100,9 @@ public class ${ClassName}Controller #if($openBaseController) extends ${baseContr
 
     }
 
-    /**
-    * 新增修改
-    */
+##    /**
+##    * 新增修改
+##    */
 ##    @PostMapping("/saveOrUpdate")
 ##    public  #if($openUnifyAjaxResult) ${unifyAjaxResultName}  #else AjaxResult #end saveOrUpdate(@RequestBody ${ClassName} ${className}){
 ##        return  AjaxResult.success();
