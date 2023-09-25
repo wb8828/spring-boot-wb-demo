@@ -34,7 +34,9 @@
         <module>wb-demo-il8n</module>
         <module>wb-demo-code</module>
         <module>wb-demo-authority/wb-demo-anthority-common</module>
-        <module>wb-demo-ratelimit</module>
+        <module>wb-demo-springretry</module>
+        <module>wb-demo-logback</module>
+        <module>wb-demo-gateway</module>
     </modules>
 
     <properties>

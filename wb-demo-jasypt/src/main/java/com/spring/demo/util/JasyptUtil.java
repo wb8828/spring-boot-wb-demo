@@ -86,9 +86,9 @@ public class JasyptUtil {
     }
 
     public static void main(String[] args) {
-        String encryptedStr = "I am the string to be encrypted";
+        String encryptedStr = "1234abC";
         String algorithm = PBE_ALGORITHMS_SHA1_RC2_40;
-        String password = "salt";
+        String password = "sdfsdfsdfsdf";
 
         String str = JasyptUtil.encrypt(encryptedStr, algorithm, password);
         System.out.println("加密后的字符串：" + str);

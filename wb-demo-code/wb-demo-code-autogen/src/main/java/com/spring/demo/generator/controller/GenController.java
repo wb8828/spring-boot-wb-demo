@@ -2,7 +2,6 @@ package com.spring.demo.generator.controller;
 
 
 import cn.hutool.core.convert.Convert;
-import com.spring.demo.AjaxResult;
 import com.spring.demo.generator.domain.CreateCodeGenConfig;
 import com.spring.demo.generator.domain.GenGlobalConfig;
 import com.spring.demo.generator.domain.GenTable;
@@ -10,10 +9,9 @@ import com.spring.demo.generator.domain.GenTableColumn;
 import com.spring.demo.generator.mapper.GenTableMapper;
 import com.spring.demo.generator.service.IGenTableColumnService;
 import com.spring.demo.generator.service.IGenTableService;
-import com.spring.demo.log.annotation.Log;
-import com.spring.demo.log.enums.BusinessType;
-import com.spring.demo.pojo.BasePageModel;
-import com.spring.demo.pojo.TableDataInfo;
+import com.spring.demo.generator.support.AjaxResult;
+import com.spring.demo.generator.support.BasePageModel;
+import com.spring.demo.generator.support.TableDataInfo;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +44,6 @@ public class GenController extends BasePageModel {
     /**
      * 查询代码生成列表
      */
-    @Log(title = "操作日志", businessType = BusinessType.QUERY)
     @GetMapping("/list")
     public TableDataInfo genList(GenTable genTable) {
         startPage();

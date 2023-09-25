@@ -1,0 +1,10 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /wb-demo
+
+# 设置日志级别
+logging:
+  level:
+    com.spring.demo: debug
+    ch.qos.logback: off

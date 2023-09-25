@@ -17,4 +17,8 @@ server:
 
 jasypt:
   encryptor:
-    bean: myStringEncryptor
+    bean: localEncryptor
+    salt: sdfsdfsdfsdf
+    property:
+      suffix: )
+      prefix: ENC(

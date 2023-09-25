@@ -20,16 +20,5 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-
-
-        <dependency>
-            <groupId>com.spring.demo</groupId>
-            <artifactId>wb-demo-code-base</artifactId>
-            <version>1.0.0</version>
-        </dependency>
     </dependencies>
 </project>

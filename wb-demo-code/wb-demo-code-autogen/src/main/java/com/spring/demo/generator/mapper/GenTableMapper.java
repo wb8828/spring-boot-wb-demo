@@ -11,7 +11,6 @@ import java.util.List;
 
 /**
  * 业务 数据层
- *
  */
 public interface GenTableMapper {
     /**

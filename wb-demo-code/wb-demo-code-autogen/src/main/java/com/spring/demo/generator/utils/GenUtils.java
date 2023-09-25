@@ -6,13 +6,12 @@ import com.spring.demo.generator.constant.GenConstants;
 import com.spring.demo.generator.domain.CreateCodeGenConfig;
 import com.spring.demo.generator.domain.GenTable;
 import com.spring.demo.generator.domain.GenTableColumn;
+import com.spring.demo.generator.support.utils.StrUtils;
 import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 
-import static com.spring.demo.utils.StringUtils.convertToCamelCase;
-import static com.spring.demo.utils.StringUtils.toCamelCase;
 
 /**
  * 代码生成器 工具类
@@ -29,14 +28,14 @@ public class GenUtils {
             genTable.setBusinessName(getBusinessName(genTable.getTableName()));
             genTable.setFunctionName(replaceText(genTable.getTableComment()));
             genTable.setFunctionAuthor(GenConfig.getAuthor());
-            genTable.setCreateBy(operName);
+//            genTable.setCreateBy(operName);
         } else {
             genTable.setPackageName(createCodeGenConfig.getPackageName());
             genTable.setModuleName(createCodeGenConfig.getModuleName());
             genTable.setBusinessName(createCodeGenConfig.getBusinessName());
             genTable.setFunctionName(createCodeGenConfig.getFunctionName());
             genTable.setFunctionAuthor(createCodeGenConfig.getFunctionAuthor());
-            genTable.setCreateBy(operName);
+//            genTable.setCreateBy(operName);
         }
 
     }
@@ -51,7 +50,7 @@ public class GenUtils {
         genTable.setBusinessName(getBusinessName(genTable.getTableName()));
         genTable.setFunctionName(replaceText(genTable.getTableComment()));
         genTable.setFunctionAuthor(StringUtils.isNotBlank(author) ? author : GenConfig.getAuthor());
-        genTable.setCreateBy(operName);
+//        genTable.setCreateBy(operName);
     }
 
     /**
@@ -61,9 +60,9 @@ public class GenUtils {
         String dataType = getDbType(column.getColumnType());
         String columnName = column.getColumnName();
         column.setTableId(table.getTableId());
-        column.setCreateBy(table.getCreateBy());
+//        column.setCreateBy(table.getCreateBy());
         // 设置java字段名
-        column.setJavaField(toCamelCase(columnName));
+        column.setJavaField(StrUtils.toCamelCase(columnName));
         // 设置默认类型
         column.setJavaType(GenConstants.TYPE_STRING);
         column.setQueryType(GenConstants.QUERY_EQ);
@@ -185,7 +184,7 @@ public class GenUtils {
             String[] searchList = StringUtils.split(tablePrefix, ",");
             tableName = replaceFirst(tableName, searchList);
         }
-        return convertToCamelCase(tableName);
+        return StrUtils.convertToCamelCase(tableName);
     }
 
     /**

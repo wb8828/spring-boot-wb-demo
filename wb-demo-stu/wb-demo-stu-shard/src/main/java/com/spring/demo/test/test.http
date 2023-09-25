@@ -1,0 +1,3 @@
+### 测试序列化形式脱敏
+GET  {{apiurl}}/test/stu/hyposensitization
+Accept: application/json

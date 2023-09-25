@@ -28,24 +28,21 @@ import java.util.List;
 @EnableSwaggerBootstrapUI
 @ConditionalOnClass(Docket.class)
 public class SwaggerAutoConfiguration {
+    private static ApiInfo apiInfo(SwaggerProperties swaggerProperties) {
+        return new ApiInfoBuilder().title(swaggerProperties.getTitle()).description(swaggerProperties.getDescription()).version(swaggerProperties.getVersion()).build();
+    }
+
     @Bean
     public Docket api(SwaggerProperties swaggerProperties) {
-        ApiSelectorBuilder builder = new Docket(DocumentationType.SWAGGER_2).select()
-                .apis(SwaggerUtil.basePackages(swaggerProperties.getBasePackages()))
-                .paths(PathSelectors.any());
+        ApiSelectorBuilder builder = new Docket(DocumentationType.SWAGGER_2).select().apis(SwaggerUtil.basePackages(swaggerProperties.getBasePackages())).paths(PathSelectors.any());
 
         return builder.build().apiInfo(apiInfo(swaggerProperties)).securitySchemes(securitySchemes());
     }
 
     private List<SecurityScheme> securitySchemes() {
-        List<SecurityScheme> apiKeyList = new ArrayList();
+        List<SecurityScheme> apiKeyList = new ArrayList<>();
         apiKeyList.add(new ApiKey("Authorization", "Authorization", "header"));
         return apiKeyList;
-    }
-
-    private static ApiInfo apiInfo(SwaggerProperties swaggerProperties) {
-        return new ApiInfoBuilder().title(swaggerProperties.getTitle()).description(swaggerProperties.getDescription())
-                .version(swaggerProperties.getVersion()).build();
     }
 
 }

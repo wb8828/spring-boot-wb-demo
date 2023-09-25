@@ -10,12 +10,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * <p>
  * 通用API接口返回
- * </p>
- *
- * @author yangkai.shen
- * @date Created in 2018-11-29 11:30
  */
 @Data
 @Builder

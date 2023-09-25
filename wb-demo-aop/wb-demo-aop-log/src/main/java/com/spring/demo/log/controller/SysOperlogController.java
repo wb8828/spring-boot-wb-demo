@@ -1,13 +1,13 @@
 package com.spring.demo.log.controller;
 
 
-import com.spring.demo.AjaxResult;
-import com.spring.demo.log.annotation.Log;
+import com.spring.demo.annotation.Log;
 import com.spring.demo.log.domain.SysOperLog;
-import com.spring.demo.log.enums.BusinessType;
 import com.spring.demo.log.service.ISysOperLogService;
-import com.spring.demo.pojo.BasePageModel;
-import com.spring.demo.pojo.TableDataInfo;
+import com.spring.demo.support.AjaxResult;
+import com.spring.demo.support.enums.BusinessType;
+import com.spring.demo.support.pagehelper.BasePageModel;
+import com.spring.demo.support.pagehelper.TableDataInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

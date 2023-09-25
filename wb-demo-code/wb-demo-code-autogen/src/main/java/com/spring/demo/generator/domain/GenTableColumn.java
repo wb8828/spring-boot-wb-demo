@@ -1,6 +1,5 @@
 package com.spring.demo.generator.domain;
 
-import com.spring.demo.BaseEntity;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
@@ -9,7 +8,7 @@ import java.io.Serializable;
  * 代码生成业务字段表 gen_table_column
  * 
  */
-public class GenTableColumn extends BaseEntity
+public class GenTableColumn implements  Serializable
 {
     private static final long serialVersionUID = 1L;
 

@@ -1,6 +1,5 @@
 package com.spring.demo.util;
 
-import com.spring.demo.utils.ServletUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;

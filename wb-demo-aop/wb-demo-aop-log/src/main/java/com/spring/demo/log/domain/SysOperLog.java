@@ -2,17 +2,16 @@ package com.spring.demo.log.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.spring.demo.BaseEntity;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 操作日志记录表
- *
  */
 @Data
-public class SysOperLog extends BaseEntity {
+public class SysOperLog implements Serializable, Cloneable {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -103,7 +102,11 @@ public class SysOperLog extends BaseEntity {
 
     @Override
     public SysOperLog clone() {
-        return (SysOperLog) super.clone();
+        try {
+            return (SysOperLog) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

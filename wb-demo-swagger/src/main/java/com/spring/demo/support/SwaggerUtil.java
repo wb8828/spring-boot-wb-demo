@@ -10,7 +10,6 @@ import java.util.List;
 /**
  * Swagger工具类
  *
- * @author chendayuan
  */
 public class SwaggerUtil {
 

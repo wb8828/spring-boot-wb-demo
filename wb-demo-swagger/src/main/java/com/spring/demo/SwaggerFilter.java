@@ -10,11 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @description:
- * @author: chendayuan
- * @create: 2021-07-15 16:06
- **/
 @Configuration
 @Slf4j
 public class SwaggerFilter implements Filter {

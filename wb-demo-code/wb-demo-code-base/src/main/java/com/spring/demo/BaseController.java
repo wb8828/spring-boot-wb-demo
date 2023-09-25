@@ -12,8 +12,6 @@ import static org.apache.commons.lang3.time.DateUtils.parseDate;
 
 /**
  * web层通用数据处理
- *
- * @author wb
  */
 public class BaseController {
     private static final String[] parsePatterns = {

@@ -1,7 +1,6 @@
 package com.spring.demo.util;
 
 import cn.hutool.extra.spring.SpringUtil;
-import com.spring.demo.utils.ServletUtils;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.bind.ServletRequestUtils;

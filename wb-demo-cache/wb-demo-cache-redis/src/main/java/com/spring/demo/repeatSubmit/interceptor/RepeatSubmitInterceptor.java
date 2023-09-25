@@ -12,33 +12,24 @@ import java.lang.reflect.Method;
 
 /**
  * 防止重复提交拦截器
- *
- * @author ruoyi
  */
 @Component
-public abstract class RepeatSubmitInterceptor implements HandlerInterceptor
-{
+public abstract class RepeatSubmitInterceptor implements HandlerInterceptor {
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception
-    {
-        if (handler instanceof HandlerMethod)
-        {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             Method method = handlerMethod.getMethod();
             RepeatSubmit annotation = method.getAnnotation(RepeatSubmit.class);
-            if (annotation != null)
-            {
-                if (this.isRepeatSubmit(request, annotation))
-                {
+            if (annotation != null) {
+                if (this.isRepeatSubmit(request, annotation)) {
 //                    AjaxResult ajaxResult = AjaxResult.error(annotation.message());
 //                    ServletUtils.renderString(response, JSON.toJSONString(ajaxResult));
                     return false;
                 }
             }
             return true;
-        }
-        else
-        {
+        } else {
             return true;
         }
     }

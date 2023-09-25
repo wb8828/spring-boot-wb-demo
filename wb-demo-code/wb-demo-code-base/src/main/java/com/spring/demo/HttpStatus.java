@@ -2,8 +2,6 @@ package com.spring.demo;
 
 /**
  * 返回状态码
- *
- * @author ruoyi
  */
 public class HttpStatus {
     /**

@@ -1,18 +1,18 @@
 package com.spring.demo.generator.domain;
 
 
-import com.spring.demo.BaseEntity;
 import com.spring.demo.generator.constant.GenConstants;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * 业务表 gen_table
  * 
  */
-public class GenTable extends BaseEntity
+public class GenTable implements Serializable
 {
     private static final long serialVersionUID = 1L;
 

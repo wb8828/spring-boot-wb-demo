@@ -1,0 +1,3 @@
+### 测试接口限流
+GET  {{noapiurl}}/test_guava_rateLimiter/test1
+Accept: application/json

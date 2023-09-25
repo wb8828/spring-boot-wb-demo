@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>wb-demo-wechat-mes</artifactId>
-
+    <name>微信发信息</name>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>

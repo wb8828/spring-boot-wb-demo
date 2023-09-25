@@ -1,17 +1,9 @@
 package com.spring.demo.generator.domain;
 
-import com.spring.demo.BaseEntity;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-/**
- * @author: 自己的名字
- * @description:
- * @date: 2023-03-14 15:49
- */
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class GenGlobalConfig extends BaseEntity {
+public class GenGlobalConfig   {
     private static final long serialVersionUID = 1L;
 
     /**

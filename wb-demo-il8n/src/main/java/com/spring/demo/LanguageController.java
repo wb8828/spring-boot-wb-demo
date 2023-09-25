@@ -1,10 +1,8 @@
 package com.spring.demo;
 
-import cn.hutool.extra.spring.SpringUtil;
 import com.spring.demo.util.LocaleUtils;
 import com.spring.demo.util.MessageUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

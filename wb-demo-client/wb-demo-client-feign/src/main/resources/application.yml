@@ -1,0 +1,18 @@
+#spring全局配置
+spring:
+  cache:
+    type: redis
+  redis:
+    host: 127.0.0.1
+    password: Nariit@123
+    port: 16379
+    database: 7
+  application:
+    name: wb-demo
+server:
+  port: 8086
+  servlet:
+    context-path: /wb-demo
+  tomcat:
+    uri-encoding: UTF-8
+    max-http-form-post-size: 100000000

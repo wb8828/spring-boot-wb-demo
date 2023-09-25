@@ -2,6 +2,7 @@ package com.spring.demo.domain;
 
 
 import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.spring.demo.BaseEntity;
 import com.spring.demo.constant.ScheduleConstants;

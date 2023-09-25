@@ -135,7 +135,8 @@ public class GenTableServiceImpl implements IGenTableService {
     @Override
     @Transactional
     public void updateGenTable(GenTable genTable) {
-        String options = JSON.toJSONString(genTable.getParams());
+//        String options = JSON.toJSONString(genTable.getParams());
+        String options = "";
         genTable.setOptions(options);
         int row = genTableMapper.updateGenTable(genTable);
         if (row > 0) {
@@ -410,7 +411,8 @@ public class GenTableServiceImpl implements IGenTableService {
     @Override
     public void validateEdit(GenTable genTable) {
         if (GenConstants.TPL_TREE.equals(genTable.getTplCategory())) {
-            String options = JSON.toJSONString(genTable.getParams());
+//            String options = JSON.toJSONString(genTable.getParams());
+            String options = "";
             JSONObject paramsObj = JSON.parseObject(options);
             if (StringUtils.isEmpty(paramsObj.getString(GenConstants.TREE_CODE))) {
                 throw new RuntimeException("树编码字段不能为空");
