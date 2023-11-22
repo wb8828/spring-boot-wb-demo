@@ -1,0 +1,63 @@
+server:
+  port: 18080
+  tomcat:
+    uri-encoding: UTF-8
+  session:
+    timeout: 18000
+        
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:18761/eureka/
+    instance:
+      leaseRenewalIntervalInSeconds: 5
+      leaseExpirationDurationInSeconds: 5
+      preferIpAddress: true
+
+zuul:
+  sensitiveHeaders: 
+  addHostHeader: true
+  routes:
+    rmcp-gqj-web:
+      path: /rmcp-gqj-web/**
+      stripPrefix: true
+      serviceId: rmcp-gqj-web
+    gqjstatic:
+      path: /gqjstatic/**
+      url: http://192.168.127.14:8892/gsgqj-front/gqjstatic/
+    cqgqj:
+      path: /cqgqj/**
+      url: http://192.168.127.14:7778/cqgqj/
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+           
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 60000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  eureka:
+    enabled: true
+
+spring:
+  application:
+    name: pi6000-gateway
+  redis:
+    host: 192.168.127.14
+    port: 16379
+    password: Nariit@123
+  session:
+    #REDIS使用redis作为会话存储、NONE则使用中间件的会话，用户登录信息使用EHcache存储,默认为EHcache存储
+    storeType: REDIS
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1000MB

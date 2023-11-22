@@ -1,7 +1,6 @@
 package com.spring.demo.demo;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -29,7 +28,6 @@ public class ListDemo1 {
     /**
      * subList方法包含左不包含右
      */
-    @Test
     public void subList() {
         ListDemo1.init();
         List<String> list = STR_LIST.subList(0, STR_LIST.size());
@@ -41,7 +39,6 @@ public class ListDemo1 {
         /**
          * 通过java8的Filter过滤list元素
          */
-        @Test
         public void removeByFilter() {
             ListDemo1.init();
             // 删除list元素方式1
@@ -53,7 +50,6 @@ public class ListDemo1 {
         /**
          * 通过迭代器删除list元素
          */
-        @Test
         public void removeByIterator() {
             ListDemo1.init();
 
@@ -69,7 +65,6 @@ public class ListDemo1 {
         /**
          * 通过RemoveIf删除list元素
          */
-        @Test
         public void removeByRemoveIf() {
             ListDemo1.init();
             // 删除list元素方式3

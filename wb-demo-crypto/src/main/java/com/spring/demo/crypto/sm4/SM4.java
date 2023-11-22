@@ -3,9 +3,6 @@ package com.spring.demo.crypto.sm4;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
-/**
- *
- */
 public class SM4 {
     public static final int SM4_ENCRYPT = 1;
 

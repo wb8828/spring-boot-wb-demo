@@ -1,11 +1,11 @@
 #spring全局配置
 spring:
   mail:
-    #    host: smtp.qq.com #平台地址，qq邮箱
-    host: smtp.163.com #平台地址，163邮箱
+    host: smtp.qq.com #平台地址，qq邮箱
+#    host: smtp.163.com #平台地址，163邮箱
     port: 25 #端口号
-    username: 你的邮箱@163.com #发送邮件的邮箱地址：改成自己的邮箱
-    password: 你的授权码
+    username: 1247564764@qq.com #发送邮件的邮箱地址：改成自己的邮箱
+    password: zcmubqxnenaijecb
     protocol: smtp
     test-connection: true
     properties:

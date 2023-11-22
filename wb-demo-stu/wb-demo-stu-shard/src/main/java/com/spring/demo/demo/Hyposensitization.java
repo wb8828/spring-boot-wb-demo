@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * 脱敏测试实体类
+ * 脱敏测试实体类，自定义序列化
  */
 @Data
 @Builder

@@ -1,0 +1,10 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /wb-demo
+  tomcat:
+    uri-encoding: UTF-8
+    max-http-form-post-size: 100000000
+
+
+

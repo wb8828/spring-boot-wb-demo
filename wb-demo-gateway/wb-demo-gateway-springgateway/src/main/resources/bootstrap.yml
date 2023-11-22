@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: wb-gateway
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        username: nacos
+        password: nacos
+        server-addr: 192.168.127.14:8848
+        namespace: public #默认是pulic
+        group: DEFAULT_GROUP
+        ip: 127.0.0.1 #设置该服务IP有时候不设置会有问题
+server:
+  port: 18080
+
+# 关闭actuator
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        # 启用网关指标的暴露，可以通过访问 /actuator/metrics/{指标} 端点来获取网关的指标数据，访问/actuator/metrics/可获取可访问的指标接口
+        include: info,health,metrics,gateway
+    # 禁用 Actuator 端点
+    enabled-by-default: true
+
+# 设置日志级别
+logging:
+  level:
+    com.spring.demo: debug
+    ch.qos.logback: off
+    org.springframework.cloud.gateway: debug
+    org.springframework.cloud.gateway.filter.LoadBalancerClientFilter: trace

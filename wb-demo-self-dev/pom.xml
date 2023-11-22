@@ -146,6 +146,15 @@
         </resources>
 
         <plugins>
+
+<!--            <plugin>-->
+<!--                <artifactId>wb-demo-maven</artifactId>-->
+<!--                <groupId>com.spring.demo</groupId>-->
+<!--                <version>1.0.0</version>-->
+
+<!--            </plugin>-->
+
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

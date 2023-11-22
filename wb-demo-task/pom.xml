@@ -19,5 +19,6 @@
 
     <modules>
         <module>wb-demo-task-quartz</module>
+        <module>wb-demo-task-xxljob</module>
     </modules>
 </project>

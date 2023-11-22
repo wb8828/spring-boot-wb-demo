@@ -29,7 +29,7 @@ public class TestImportExcelUtils {
      * @param sheetNum    读取第几个sheet
      * @param cls         实体列
      * @param file        上传的文件
-     * @param <T>
+     * @param <T>         实体类
      * @return 实体类集合
      * @throws Exception 异常
      */

@@ -8,15 +8,14 @@ import com.spring.demo.easyexcel.listener.LocalEasyExcelListener;
 import com.spring.demo.easyexcel.test.vo.TestData;
 import com.spring.demo.easyexcel.utils.FileUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.compress.utils.IOUtils;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -79,6 +78,14 @@ public class TestController {
         } finally {
             FileUtils.close(in);
         }
+
+    }
+
+    /**
+     * 复杂表头
+     */
+    @GetMapping("/complexHead")
+    public void complexHead() {
 
     }
 }

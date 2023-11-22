@@ -23,7 +23,7 @@ public class MailServiceTest extends SpringBootDemoEmailApplicationTests {
     @Autowired
     private ApplicationContext context;
 
-    private static final String toUser = "2690101431@qq.com";
+    private static final String toUser = "1247564764@qq.com";
     /**
      * 测试简单邮件
      */

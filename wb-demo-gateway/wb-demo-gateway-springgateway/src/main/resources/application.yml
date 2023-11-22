@@ -1,0 +1,69 @@
+spring:
+  cloud:
+    gateway:
+      # 全局http超时
+      httpclient:
+        # 毫秒为单位
+        connect-timeout: 1000
+        # 响应超时必须以 java.time.Duration 的形式
+        response-timeout: 5s
+      discovery:
+        locator:
+          #让gateway可以发现nacos中的微服务 开启后会自动去掉一层路径,且routes会失效
+          #如果完全注释routes,knife4j会失效
+          enabled: false
+      routes:
+        - id: after_route
+          uri: https://www.baidu.com
+          predicates:
+            - Cookie=mycookie,mycookievalue
+
+        # 通过访问路径拦截
+        - id: path_route
+          uri: http://127.0.0.1:8080
+          predicates:
+            - Path=/red/**,/wbStatic/**
+
+        # 通过访问路径拦截,可以截取
+        - id: path_route_strip
+          uri: http://127.0.0.1:8086
+          predicates:
+            - Path=/test-demo/**
+            - Method=GET,POST
+            # ?green=1才可以匹配到
+            - Query=green
+          filters:
+            # 被调用的服务没有context-path可以直接StripPrefix=0截取
+            - StripPrefix=0
+            # 被调用的服务带有context-path 需要重写路径
+            - RewritePath=/test-demo/?(?<segment>.*), /wb-demo/$\{segment}
+          metadata:
+            # 自定义额外的参数 可通过exchange.getAttribute(GATEWAY_ROUTE_ATTR)获取 见LogFilter.class
+            optionName: "OptionValue"
+        # 微服务形式转发
+        - id: microservice
+          uri: lb://service-name
+          predicates:
+            - Path=/microservice/**
+          metadata:
+            # 必须毫秒为单位指定
+            response-timeout: 200
+            # 必须毫秒为单位指定
+            connect-timeout: 200
+
+        # SockJS route
+        - id: websocket_sockjs_route
+          uri: http://localhost:3001
+          predicates:
+            - Path=/websocket/info/**
+
+        # Normal Websocket route
+        - id: websocket_route
+          uri: ws://localhost:3001
+          predicates:
+            - Path=/websocket/**
+
+      metrics:
+        enabled: true
+      default-filters:
+        - StripPrefix=0

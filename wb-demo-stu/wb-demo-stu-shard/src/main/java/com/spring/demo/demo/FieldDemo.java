@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Singular;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -23,7 +22,6 @@ public class FieldDemo {
      * 获取静态属性值
      * 获取非静态的属性值参考test1写法
      */
-    @Test
     public void test() throws IllegalAccessException {
 
         Field[] fields = FieldTestPOJO.class.getDeclaredFields();
@@ -41,7 +39,6 @@ public class FieldDemo {
      * 获取非静态属性值
      * 当然此方法也可以直接获取静态的属性值
      */
-    @Test
     public void test1() throws IllegalAccessException {
         FieldTestPOJO fieldTestPOJO = new FieldTestPOJO("踢足球");
         Field[] fields = fieldTestPOJO.getClass().getDeclaredFields();

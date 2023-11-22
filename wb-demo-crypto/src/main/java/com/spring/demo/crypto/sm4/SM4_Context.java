@@ -1,7 +1,5 @@
 package com.spring.demo.crypto.sm4;
 
-/**
- */
 public class SM4_Context {
     public int mode;
 

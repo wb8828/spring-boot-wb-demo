@@ -6,8 +6,9 @@
 
     <groupId>com.spring.demo</groupId>
     <artifactId>spring-boot-wb-demo</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
+    <name>学习</name>
     <modules>
         <module>wb-demo-mail</module>
         <module>wb-demo-swagger</module>
@@ -33,10 +34,10 @@
         <module>wb-demo-soa</module>
         <module>wb-demo-il8n</module>
         <module>wb-demo-code</module>
-        <module>wb-demo-authority/wb-demo-anthority-common</module>
         <module>wb-demo-springretry</module>
         <module>wb-demo-logback</module>
-        <module>wb-demo-gateway</module>
+        <module>wb-demo-war</module>
+        <module>wb-demo-maven</module>
     </modules>
 
     <properties>
@@ -160,13 +161,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-<!--            <scope>test</scope>-->
+            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-<!--            <scope>test</scope>-->
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,6 @@ public class Java8Demo {
         }};
     }
 
-    @Test
     public void getIdNameMap() {
         Java8Demo.init1();
         Map<String, String> collect = list.stream().collect(Collectors.toMap(TestPOJO::getKey, TestPOJO::getValue));
@@ -45,14 +43,12 @@ public class Java8Demo {
      * 在list转为map时，作为key的值有可能重复，这时候流的处理会抛出个异常：Java.lang.IllegalStateException:Duplicate key。
      * 这时候就要在toMap方法中指定当key冲突时key的选择。(这里是选择第二个key覆盖第一个key)
      */
-    @Test
     public void test2() {
         Java8Demo.init2();
         Map<String, String> collect = list.stream().collect(Collectors.toMap(TestPOJO::getKey, TestPOJO::getValue, (key1, key2) -> key2));
         log.info(collect.toString());
     }
 
-    @Test
     public void test3() {
         Java8Demo.init1();
         Map<String, TestPOJO> collect = list.stream().collect(Collectors.toMap(TestPOJO::getKey, account -> account));
@@ -67,7 +63,6 @@ public class Java8Demo {
 
     // <editor-fold desc="集合转List">
 
-    @Test
     public void test4(){
         Java8Demo.init1();
         List<String> collect = list.stream().map(TestPOJO::getKey).collect(Collectors.toList());

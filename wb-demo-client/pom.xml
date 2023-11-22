@@ -20,6 +20,7 @@
     <modules>
         <module>wb-demo-client-feign</module>
         <module>wb-demo-client-okhttp3</module>
+        <module>wb-demo-client-restTemplate</module>
     </modules>
 
 
