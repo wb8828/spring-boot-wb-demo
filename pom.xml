@@ -38,6 +38,7 @@
         <module>wb-demo-logback</module>
         <module>wb-demo-war</module>
         <module>wb-demo-maven</module>
+        <module>wb-demo-client/wb-demo-client-forest</module>
     </modules>
 
     <properties>
